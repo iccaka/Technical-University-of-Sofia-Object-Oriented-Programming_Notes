@@ -38,7 +38,7 @@ namespace Notes
 
             if(category.Length == 0 || category.Length > 16)
             {
-                MessageBox.Show("The names of the categories must be 1-16 characters long", "Invalid category name", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The names of the categories must be 1-16 characters long.", "Invalid category name", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
