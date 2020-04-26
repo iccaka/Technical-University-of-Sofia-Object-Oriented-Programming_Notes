@@ -12,7 +12,6 @@ namespace Notes
 {
     public partial class Form1 : Form
     {
-
         List<string> categories;
 
         public Form1()
@@ -22,10 +21,17 @@ namespace Notes
             this.categories = new List<string>();
             this.categories.Add("default");
 
-            AddDefaultCategoryInListBox1();
+            UpdateCategoriesOnScreen();
         }
 
-        private void AddDefaultCategoryInListBox1()
+        private void AddCategory(string category)
+        {
+            this.categories.Add(category);
+
+            UpdateCategoriesOnScreen();
+        }
+
+        private void UpdateCategoriesOnScreen()
         {
             this.listBox1.Items.Clear();
 
@@ -37,7 +43,7 @@ namespace Notes
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(AddCategory);
             form2.Show();
         }
 
