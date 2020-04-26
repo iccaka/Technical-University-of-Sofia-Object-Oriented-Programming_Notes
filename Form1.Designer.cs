@@ -112,6 +112,7 @@
             this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
             this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.categoriesToolStripMenuItem.Text = "Categories";
+            this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -134,27 +135,27 @@
             // aZToolStripMenuItem
             // 
             this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
-            this.aZToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aZToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.aZToolStripMenuItem.Text = "A-Z";
             this.aZToolStripMenuItem.Click += new System.EventHandler(this.aZToolStripMenuItem_Click);
             // 
             // zAToolStripMenuItem
             // 
             this.zAToolStripMenuItem.Name = "zAToolStripMenuItem";
-            this.zAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zAToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.zAToolStripMenuItem.Text = "Z-A";
             this.zAToolStripMenuItem.Click += new System.EventHandler(this.zAToolStripMenuItem_Click);
             // 
             // lengthToolStripMenuItem
             // 
             this.lengthToolStripMenuItem.Name = "lengthToolStripMenuItem";
-            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.lengthToolStripMenuItem.Text = "Length";
             // 
             // dateCreatedToolStripMenuItem
             // 
             this.dateCreatedToolStripMenuItem.Name = "dateCreatedToolStripMenuItem";
-            this.dateCreatedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dateCreatedToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.dateCreatedToolStripMenuItem.Text = "Date created";
             // 
             // textBox1

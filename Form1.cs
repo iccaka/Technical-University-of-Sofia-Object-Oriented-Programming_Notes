@@ -99,5 +99,10 @@ namespace Notes
         {
 
         }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
