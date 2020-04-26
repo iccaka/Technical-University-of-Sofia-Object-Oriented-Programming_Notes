@@ -8,3 +8,4 @@ D:\Online Study\OOP\Notes\obj\Debug\Notes.csproj.GenerateResource.cache
 D:\Online Study\OOP\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
 D:\Online Study\OOP\Notes\obj\Debug\Notes.exe
 D:\Online Study\OOP\Notes\obj\Debug\Notes.pdb
+D:\Online Study\OOP\Notes\obj\Debug\Notes.Form2.resources

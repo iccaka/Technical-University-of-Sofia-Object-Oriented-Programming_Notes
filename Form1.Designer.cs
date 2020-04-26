@@ -70,8 +70,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Create";
+            this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -81,6 +82,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -88,7 +90,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(176, 23);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Edit category";
+            this.button4.Text = "Delete selected category";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -116,6 +118,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Add new";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // sortToolStripMenuItem
             // 
@@ -133,12 +136,14 @@
             this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
             this.aZToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aZToolStripMenuItem.Text = "A-Z";
+            this.aZToolStripMenuItem.Click += new System.EventHandler(this.aZToolStripMenuItem_Click);
             // 
             // zAToolStripMenuItem
             // 
             this.zAToolStripMenuItem.Name = "zAToolStripMenuItem";
             this.zAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zAToolStripMenuItem.Text = "Z-A";
+            this.zAToolStripMenuItem.Click += new System.EventHandler(this.zAToolStripMenuItem_Click);
             // 
             // lengthToolStripMenuItem
             // 
@@ -176,6 +181,7 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(176, 368);
             this.listBox2.TabIndex = 1;
+            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
             // button2
             // 
@@ -183,7 +189,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Edit note";
+            this.button2.Text = "Edit selected note";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -207,6 +213,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
