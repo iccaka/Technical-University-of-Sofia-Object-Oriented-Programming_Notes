@@ -12,7 +12,7 @@ namespace Notes
 {
     public partial class Form1 : Form
     {
-        List<string> categories;
+        List<Category> categories;
 
         public Form1()
         {
@@ -45,6 +45,11 @@ namespace Notes
         {
             Form2 form2 = new Form2(AddCategory);
             form2.Show();
+        }
+
+        private void aZToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -85,14 +90,6 @@ namespace Notes
         private void button3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void aZToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListBox listboox = new ListBox();
-            listboox.Size = new System.Drawing.Size(100, 100);
-            listboox.Location = new System.Drawing.Point(10, 10);
-            this.Controls.Add(listboox);
         }
 
         private void zAToolStripMenuItem_Click(object sender, EventArgs e)
