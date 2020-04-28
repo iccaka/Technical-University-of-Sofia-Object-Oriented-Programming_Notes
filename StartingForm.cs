@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Notes
 {
-    public partial class Form1 : Form
+    public partial class StartingForm : Form
     {
-        List<Category> categories;
+        Dictionary<string, ICategory> categories;
 
-        public Form1()
+        public StartingForm()
         {
             InitializeComponent();
 
-            this.categories = new List<string>();
-            this.categories.Add("default");
+            this.categories = new Dictionary<string, ICategory>();
+
+            CustomCategory defaultCategory = new CustomCategory("default");
+            this.AddCategory(defaultCategory);
 
             UpdateCategoriesOnScreen();
         }
 
-        private void AddCategory(string category)
+        public void AddCategory(ICategory category)
         {
-            this.categories.Add(category);
+            this.categories.Add(category.GetName(), category);
 
             UpdateCategoriesOnScreen();
         }
@@ -35,16 +31,16 @@ namespace Notes
         {
             this.listBox1.Items.Clear();
 
-            foreach (string category in this.categories)
+            foreach(KeyValuePair<string, ICategory> category in this.categories)
             {
-                this.listBox1.Items.Add(category);
+                this.listBox1.Items.Add(category.Key);
             }
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(AddCategory);
-            form2.Show();
+            CategoryCreationForm ccForm = new CategoryCreationForm(this);
+            ccForm.Show();
         }
 
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)

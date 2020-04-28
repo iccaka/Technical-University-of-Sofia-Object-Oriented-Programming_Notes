@@ -1,6 +1,6 @@
 ﻿namespace Notes
 {
-    partial class Form2
+    partial class CategoryCreationForm
     {
         /// <summary>
         /// Required designer variable.

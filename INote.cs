@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Notes
 {
-    interface INote
+    public interface INote
     {
+        string GetHeading();
+        void SetHeading(string heading);
+        string GetBody();
+        void SetBody(string body);
     }
 }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Notes
 {
-    interface ICategory
+    public interface ICategory
     {
+        string GetName();
+        void SetName(string name);
+        List<INote> GetNotesList();
     }
 }
