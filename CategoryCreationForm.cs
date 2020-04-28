@@ -11,6 +11,7 @@ namespace Notes
         public CategoryCreationForm(StartingForm incomingForm)
         {
             InitializeComponent();
+            this.Text = "Create category";
 
             this.incomingForm = incomingForm;
         }

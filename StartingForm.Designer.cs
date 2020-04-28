@@ -38,7 +38,6 @@
             this.aZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lengthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateCreatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,11 +53,13 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(176, 368);
             this.listBox1.TabIndex = 1;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(379, 64);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(409, 342);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
@@ -106,10 +107,9 @@
             this.sortToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aZToolStripMenuItem,
             this.zAToolStripMenuItem,
-            this.lengthToolStripMenuItem,
-            this.dateCreatedToolStripMenuItem});
+            this.lengthToolStripMenuItem});
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
-            this.sortToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sortToolStripMenuItem.Text = "Sort";
             // 
             // aZToolStripMenuItem
@@ -129,14 +129,9 @@
             // lengthToolStripMenuItem
             // 
             this.lengthToolStripMenuItem.Name = "lengthToolStripMenuItem";
-            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.lengthToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.lengthToolStripMenuItem.Text = "Length";
-            // 
-            // dateCreatedToolStripMenuItem
-            // 
-            this.dateCreatedToolStripMenuItem.Name = "dateCreatedToolStripMenuItem";
-            this.dateCreatedToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.dateCreatedToolStripMenuItem.Text = "Date created";
+            this.lengthToolStripMenuItem.Click += new System.EventHandler(this.lengthToolStripMenuItem_Click);
             // 
             // notesToolStripMenuItem
             // 
@@ -151,11 +146,13 @@
             this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
             this.addNewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewToolStripMenuItem.Text = "Add new";
+            this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(379, 38);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(409, 20);
             this.textBox1.TabIndex = 7;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -171,13 +168,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(197, 415);
+            this.button2.Location = new System.Drawing.Point(200, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Edit selected note";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button4_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // StartingForm
             // 
@@ -215,7 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem aZToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lengthToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dateCreatedToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button2;

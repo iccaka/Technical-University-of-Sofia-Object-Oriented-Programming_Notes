@@ -50,6 +50,8 @@
     <Compile Include="BaseNote.cs" />
     <Compile Include="CustomCategory.cs" />
     <Compile Include="CategoryNameException.cs" />
+    <Compile Include="DecreaseComparer.cs" />
+    <Compile Include="IncreaseComparer.cs" />
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
     </Compile>
