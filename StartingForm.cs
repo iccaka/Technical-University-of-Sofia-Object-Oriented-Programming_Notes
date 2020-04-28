@@ -21,25 +21,21 @@ namespace Notes
             AddDefaultCategory();
             UpdateCategoriesOnScreen();
         }
-
         private void AddDefaultCategory()
         {
             CustomCategory defaultCategory = new CustomCategory("default");
             this.AddCategory(defaultCategory);
         }
-
         public void AddCategory(ICategory category)
         {
-            this.categories.Add(category.GetName(), category);
+            this.categories.Add(category.Name, category);
 
             UpdateCategoriesOnScreen();
         }
-
         public void AddNote(string category, INote note)
         {
             this.categories[category].AddNote(note);
         }
-
         private void UpdateCategoriesOnScreen()
         {
             this.listBox1.Items.Clear();
@@ -49,17 +45,16 @@ namespace Notes
                 this.listBox1.Items.Add(category.Key);
             }
         }
-
         private void UpdateNotesOnScreen()
         {
             this.listBox2.Items.Clear();
 
             ICategory cc = this.categories[this.selectedCategory];
-            Dictionary<string, INote> categoryList = cc.GetNotesList();
+            Dictionary<string, INote> categoryList = cc.NotesList;
 
             foreach (KeyValuePair<string, INote> note in categoryList)
             {
-                this.listBox2.Items.Add(note.Value.GetHeading());
+                this.listBox2.Items.Add(note.Value.Heading);
             }
         }
         private void ClearNoteBodyOnScreen()
@@ -67,17 +62,11 @@ namespace Notes
             this.textBox1.Clear();
             this.richTextBox1.Clear();
         }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CategoryCreationForm ccForm = new CategoryCreationForm(this);
             ccForm.Show();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             if(this.listBox1.SelectedIndex == -1)
@@ -98,46 +87,20 @@ namespace Notes
 
             this.UpdateCategoriesOnScreen();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.listBox2.SelectedIndex == -1)
             {
                 return;
             }
+
             string selectedNote = this.listBox2.SelectedItem.ToString();
             INote note = this.categories[this.selectedCategory].GetNote(selectedNote);
 
             this.textBox1.Clear();
             this.richTextBox1.Clear();
-
-            this.textBox1.Text = note.GetHeading();
-            this.richTextBox1.Text = note.GetBody();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
+            this.textBox1.Text = note.Heading;
+            this.richTextBox1.Text = note.Body;
         }
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -165,25 +128,11 @@ namespace Notes
 
             this.UpdateCategoriesOnScreen();
         }
-        private void lengthToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void FlipDictionary()
-        {
-            this.categories = new SortedDictionary<string, ICategory>(Comparer<string>.Create((x, y) => y.CompareTo(x)));
-        }
-        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NoteCreationForm ncForm = new NoteCreationForm(this, this.categories);
             ncForm.Show();
         }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.ClearNoteBodyOnScreen();
@@ -197,7 +146,6 @@ namespace Notes
 
             this.UpdateNotesOnScreen();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (this.listBox2.SelectedIndex == -1)

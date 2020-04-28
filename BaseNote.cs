@@ -1,4 +1,6 @@
-﻿namespace Notes
+﻿using System.Runtime.Remoting.Messaging;
+
+namespace Notes
 {
     abstract class BaseNote : INote
     {
@@ -8,41 +10,43 @@
         
         public BaseNote(string heading, string body)
         {
-            this.SetHeading(heading);
-            this.SetBody(body);
+            this.Heading = heading;
+            this.Body = body;
         }
-
-        public string GetHeading()
+        public virtual string Heading
         {
-            return this.heading;
-        }
-
-        public void SetHeading(string heading)
-        {
-            if (heading.Length == 0 || heading.Length > 64)
+            get
             {
-                throw new HeadingException("The headings of the notes must be 1-64 characters long.");
+                return this.heading;
             }
-            else
+            set
             {
-                this.heading = heading;
+                if (value.Length == 0 || value.Length > 64)
+                {
+                    throw new HeadingException("The heading of the notes must be 1-64 characters long.");
+                }
+                else
+                {
+                    this.heading = value;
+                }
             }
         }
-
-        public string GetBody()
+        public virtual string Body
         {
-            return this.body;
-        }
-
-        public void SetBody(string body)
-        {
-            if (body.Length == 0 || body.Length > 4096)
+            get
             {
-                throw new NoteBodyException("The body of the notes must be 1-4096 characters long.");
+                return this.body;
             }
-            else
+            set
             {
-                this.body = body;
+                if (value.Length == 0 || value.Length > 4096)
+                {
+                    throw new NoteBodyException("The body of the notes must be 1-4096 characters long.");
+                }
+                else
+                {
+                    this.body = value;
+                }
             }
         }
     }

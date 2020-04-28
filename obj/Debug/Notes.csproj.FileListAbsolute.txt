@@ -1,12 +1,12 @@
 D:\Online Study\OOP\Notes\bin\Debug\Notes.exe.config
 D:\Online Study\OOP\Notes\bin\Debug\Notes.exe
 D:\Online Study\OOP\Notes\bin\Debug\Notes.pdb
-D:\Online Study\OOP\Notes\obj\Debug\Notes.csprojAssemblyReference.cache
+D:\Online Study\OOP\Notes\obj\Debug\Notes.StartingForm.resources
+D:\Online Study\OOP\Notes\obj\Debug\Notes.CategoryCreationForm.resources
+D:\Online Study\OOP\Notes\obj\Debug\Notes.NoteCreationForm.resources
 D:\Online Study\OOP\Notes\obj\Debug\Notes.Properties.Resources.resources
 D:\Online Study\OOP\Notes\obj\Debug\Notes.csproj.GenerateResource.cache
 D:\Online Study\OOP\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
 D:\Online Study\OOP\Notes\obj\Debug\Notes.exe
 D:\Online Study\OOP\Notes\obj\Debug\Notes.pdb
-D:\Online Study\OOP\Notes\obj\Debug\Notes.StartingForm.resources
-D:\Online Study\OOP\Notes\obj\Debug\Notes.CategoryCreationForm.resources
-D:\Online Study\OOP\Notes\obj\Debug\Notes.NoteCreationForm.resources
+D:\Online Study\OOP\Notes\obj\Debug\Notes.csprojAssemblyReference.cache

@@ -10,36 +10,43 @@ namespace Notes
         public BaseCategory(string name)
         {
             this.notesList = new Dictionary<string, INote>();
-            this.SetName(name);
+            this.Name = name;
         }
-        public string GetName()
+        public virtual string Name
         {
-            return this.name;
-        }
-        public void SetName(string name)
-        {
-            if (name.Length == 0 || name.Length > 16)
+            get
             {
-                throw new CategoryNameException("The names of the categories must be 1-16 characters long.");
+                return this.name;
             }
-            else
+
+            set
             {
-                this.name = name;
+                if (value.Length == 0 || value.Length > 16)
+                {
+                    throw new CategoryNameException("The names of the categories must be 1-16 characters long.");
+                }
+                else
+                {
+                    this.name = value;
+                }
             }
         }
-        public Dictionary<string, INote> GetNotesList()
+        public virtual Dictionary<string, INote> NotesList
         {
-            return this.notesList;
+            get
+            {
+                return this.notesList;
+            }
         }
-        public INote GetNote(string heading)
+        public virtual INote GetNote(string heading)
         {
             return this.notesList[heading];
         }
-        public void AddNote(INote note)
+        public virtual void AddNote(INote note)
         {
-            this.notesList.Add(note.GetHeading(), note);
+            this.notesList.Add(note.Heading, note);
         }
-        public void RemoveNote(string heading)
+        public virtual void RemoveNote(string heading)
         {
             this.notesList.Remove(heading);
         }
