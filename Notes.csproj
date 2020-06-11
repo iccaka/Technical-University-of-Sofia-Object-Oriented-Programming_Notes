@@ -70,7 +70,7 @@
     <Compile Include="NoteCreationForm.Designer.cs">
       <DependentUpon>NoteCreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeadingException.cs" />
+    <Compile Include="NoteHeadingException.cs" />
     <Compile Include="ICategory.cs" />
     <Compile Include="INote.cs" />
     <Compile Include="CustomNote.cs" />

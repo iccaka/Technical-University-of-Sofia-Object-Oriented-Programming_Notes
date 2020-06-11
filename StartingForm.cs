@@ -156,6 +156,7 @@ namespace Notes
             string noteToDelete = this.listBox2.SelectedItem.ToString();
             this.categories[this.selectedCategory].RemoveNote(noteToDelete);
 
+            this.ClearNoteBodyOnScreen();
             this.UpdateNotesOnScreen();
         }
     }

@@ -23,7 +23,7 @@ namespace Notes
             {
                 if (value.Length == 0 || value.Length > 64)
                 {
-                    throw new HeadingException("The heading of the notes must be 1-64 characters long.");
+                    throw new NoteHeadingException("The heading of the notes must be 1-64 characters long.");
                 }
                 else
                 {
