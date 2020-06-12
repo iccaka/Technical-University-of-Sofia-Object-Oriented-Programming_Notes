@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Notes
 {
+
+    [Serializable]
     abstract class BaseCategory : ICategory
     {
         protected string name;

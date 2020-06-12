@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace Notes
 {
@@ -10,6 +13,7 @@ namespace Notes
     {
         private SortedDictionary<string, ICategory> categories;
         private string selectedCategory;
+        public static readonly string DEFAULT_SERIALIZABLE_FILE = "StartingFormCategoriesData.dat";
 
         public StartingForm()
         {
@@ -18,8 +22,9 @@ namespace Notes
 
             this.categories = new SortedDictionary<string, ICategory>();
 
-            AddDefaultCategory();
-            UpdateCategoriesOnScreen();
+            this.AddDefaultCategory();
+            this.Deserialize();
+            this.UpdateCategoriesOnScreen();
         }
         private void AddDefaultCategory()
         {
@@ -30,11 +35,13 @@ namespace Notes
         {
             this.categories.Add(category.Name, category);
 
-            UpdateCategoriesOnScreen();
+            this.Serialize();
+            this.UpdateCategoriesOnScreen();
         }
         public void AddNote(string category, INote note)
         {
             this.categories[category].AddNote(note);
+            this.Serialize();
         }
         private void UpdateCategoriesOnScreen()
         {
@@ -44,6 +51,8 @@ namespace Notes
             {
                 this.listBox1.Items.Add(category.Key);
             }
+
+            this.Deserialize();
         }
         private void UpdateNotesOnScreen()
         {
@@ -82,9 +91,10 @@ namespace Notes
 
             if (this.categories.Count == 0)
             {
-                AddDefaultCategory();
+                this.AddDefaultCategory();
             }
 
+            this.Serialize();
             this.UpdateCategoriesOnScreen();
         }
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,6 +123,7 @@ namespace Notes
 
             this.categories = sortedCategories;
 
+            this.Serialize();
             this.UpdateCategoriesOnScreen();
         }
         private void zAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,6 +137,7 @@ namespace Notes
 
             this.categories = sortedCategories;
 
+            this.Serialize();
             this.UpdateCategoriesOnScreen();
         }
         private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,8 +168,40 @@ namespace Notes
             string noteToDelete = this.listBox2.SelectedItem.ToString();
             this.categories[this.selectedCategory].RemoveNote(noteToDelete);
 
+            this.Serialize();
             this.ClearNoteBodyOnScreen();
             this.UpdateNotesOnScreen();
+        }
+
+        private void Serialize()
+        {
+            Stream stream = File.Open(DEFAULT_SERIALIZABLE_FILE, FileMode.Create);
+
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+            CategoriesSerializable categoriesSerializable = new CategoriesSerializable(this.categories);
+
+            binaryFormatter.Serialize(stream, categoriesSerializable);
+
+            stream.Close();
+        }
+
+        private void Deserialize()
+        {
+            if (!File.Exists(DEFAULT_SERIALIZABLE_FILE))
+            {
+                return;
+            }
+
+            Stream stream = File.Open(DEFAULT_SERIALIZABLE_FILE, FileMode.Open);
+
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+            CategoriesSerializable categoriesSerializable = (CategoriesSerializable)binaryFormatter.Deserialize(stream);
+
+            this.categories = categoriesSerializable.Categories;
+
+            stream.Close();
         }
     }
 }

@@ -1,5 +1,9 @@
-﻿namespace Notes
+﻿using System;
+
+namespace Notes
 {
+
+    [Serializable]
     internal class CustomCategory : BaseCategory
     {
         

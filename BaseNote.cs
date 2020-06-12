@@ -1,7 +1,10 @@
-﻿using System.Runtime.Remoting.Messaging;
+﻿using System;
+using System.Runtime.Remoting.Messaging;
 
 namespace Notes
 {
+
+    [Serializable]
     abstract class BaseNote : INote
     {
 
