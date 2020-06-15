@@ -9,16 +9,12 @@ namespace Notes
 {
 
     [Serializable]
-    public class CategoriesSerializable
+    public class CustomCategoriesSerializable : BaseCategoriesSerializable
     {
-        private SortedDictionary<string, ICategory> categories;
+        public CustomCategoriesSerializable(IDictionary<string, ICategory> categories) : base(categories) { }
 
-        public CategoriesSerializable(SortedDictionary<string, ICategory> categories)
-        {
-            this.Categories = categories;
-        }
 
-        public virtual SortedDictionary<string, ICategory> Categories
+        public new virtual IDictionary<string, ICategory> Categories
         {
             get
             {

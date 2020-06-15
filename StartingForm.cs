@@ -8,7 +8,7 @@ namespace Notes
 {
     public partial class StartingForm : Form
     {
-        private SortedDictionary<string, ICategory> categories;
+        private IDictionary<string, ICategory> categories;
         private string selectedCategory;
         public static readonly string DEFAULT_SERIALIZABLE_FILE = "StartingFormCategoriesData.bin";
 
@@ -173,7 +173,7 @@ namespace Notes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            CategoriesSerializable categoriesSerializable = new CategoriesSerializable(this.categories);
+            BaseCategoriesSerializable categoriesSerializable = new CustomCategoriesSerializable(this.categories);
 
             binaryFormatter.Serialize(stream, categoriesSerializable);
 
@@ -181,7 +181,12 @@ namespace Notes
         }
 
         private void Deserialize()
-        {     
+        {
+            if (!File.Exists(DEFAULT_SERIALIZABLE_FILE))
+            {
+                return;
+            }
+
             Stream stream = new FileStream(DEFAULT_SERIALIZABLE_FILE, FileMode.Open, FileAccess.Read, FileShare.Read);
 
             if(stream.Length == 0)
@@ -193,7 +198,9 @@ namespace Notes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            CategoriesSerializable categoriesSerializable = (CategoriesSerializable)binaryFormatter.Deserialize(stream);
+            stream.Position = 0;
+
+            CustomCategoriesSerializable categoriesSerializable = (CustomCategoriesSerializable)binaryFormatter.Deserialize(stream);
             this.categories = categoriesSerializable.Categories;
 
             stream.Close();

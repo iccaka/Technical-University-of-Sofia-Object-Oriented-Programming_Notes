@@ -8,9 +8,9 @@ namespace Notes
     {
 
         private StartingForm incomingForm;
-        private SortedDictionary<string, ICategory> categoriesToShow;
+        private IDictionary<string, ICategory> categoriesToShow;
 
-        public NoteCreationForm(StartingForm incomingForm, SortedDictionary<string, ICategory> categoriesToShow)
+        public NoteCreationForm(StartingForm incomingForm, IDictionary<string, ICategory> categoriesToShow)
         {
             InitializeComponent();
             this.Text = "Create note";

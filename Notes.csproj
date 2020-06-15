@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseCategoriesSerializable.cs" />
     <Compile Include="BaseCategory.cs" />
     <Compile Include="BaseNote.cs" />
-    <Compile Include="CategoriesSerializable.cs" />
+    <Compile Include="CustomCategoriesSerializable.cs" />
     <Compile Include="CustomCategory.cs" />
     <Compile Include="CategoryNameException.cs" />
     <Compile Include="DecreaseComparer.cs" />
+    <Compile Include="ICategoriesSerializable.cs" />
     <Compile Include="IncreaseComparer.cs" />
     <Compile Include="StartingForm.cs">
       <SubType>Form</SubType>
