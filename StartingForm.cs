@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.IO;
 
 namespace Notes
@@ -13,7 +10,7 @@ namespace Notes
     {
         private SortedDictionary<string, ICategory> categories;
         private string selectedCategory;
-        public static readonly string DEFAULT_SERIALIZABLE_FILE = "StartingFormCategoriesData.dat";
+        public static readonly string DEFAULT_SERIALIZABLE_FILE = "StartingFormCategoriesData.bin";
 
         public StartingForm()
         {
@@ -22,7 +19,6 @@ namespace Notes
 
             this.categories = new SortedDictionary<string, ICategory>();
 
-            this.AddDefaultCategory();
             this.Deserialize();
             this.UpdateCategoriesOnScreen();
         }
@@ -51,8 +47,6 @@ namespace Notes
             {
                 this.listBox1.Items.Add(category.Key);
             }
-
-            this.Deserialize();
         }
         private void UpdateNotesOnScreen()
         {
@@ -175,7 +169,7 @@ namespace Notes
 
         private void Serialize()
         {
-            Stream stream = File.Open(DEFAULT_SERIALIZABLE_FILE, FileMode.Create);
+            Stream stream = new FileStream(DEFAULT_SERIALIZABLE_FILE, FileMode.Create, FileAccess.Write, FileShare.None);
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -187,18 +181,19 @@ namespace Notes
         }
 
         private void Deserialize()
-        {
-            if (!File.Exists(DEFAULT_SERIALIZABLE_FILE))
+        {     
+            Stream stream = new FileStream(DEFAULT_SERIALIZABLE_FILE, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+            if(stream.Length == 0)
             {
+                stream.Close();
+                this.AddDefaultCategory();
                 return;
             }
-
-            Stream stream = File.Open(DEFAULT_SERIALIZABLE_FILE, FileMode.Open);
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
             CategoriesSerializable categoriesSerializable = (CategoriesSerializable)binaryFormatter.Deserialize(stream);
-
             this.categories = categoriesSerializable.Categories;
 
             stream.Close();

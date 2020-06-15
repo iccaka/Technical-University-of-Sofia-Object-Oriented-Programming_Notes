@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
+
+    [Serializable]
     public class IncreaseComparer : IComparer<string>
     {
         public int Compare(string x, string y) { return x.CompareTo(y); }
