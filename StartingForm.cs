@@ -12,12 +12,12 @@ namespace Notes
         private string selectedCategory;
         public static readonly string DEFAULT_SERIALIZABLE_FILE = "StartingFormCategoriesData.bin";
 
-        public StartingForm()
+        public StartingForm(IDictionary<string, ICategory> categories)
         {
             InitializeComponent();
             this.Text = "Notes";
 
-            this.categories = new SortedDictionary<string, ICategory>();
+            this.categories = categories;
 
             this.Deserialize();
             this.UpdateCategoriesOnScreen();

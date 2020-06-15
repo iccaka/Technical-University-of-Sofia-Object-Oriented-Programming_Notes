@@ -17,7 +17,10 @@ namespace Notes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartingForm());
+
+            IDictionary<string, ICategory> categories = new SortedDictionary<string, ICategory>();
+
+            Application.Run(new StartingForm(categories));
 
         }
     }
