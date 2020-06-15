@@ -5,7 +5,7 @@ namespace Notes
 {
 
     [Serializable]
-    public class BaseCategoriesSerializable : ICategoriesSerializable
+    public abstract class BaseCategoriesSerializable : ICategoriesSerializable
     {
         protected IDictionary<string, ICategory> categories;
 
