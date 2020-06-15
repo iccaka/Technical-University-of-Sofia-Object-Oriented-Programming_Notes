@@ -9,9 +9,9 @@ namespace Notes
 {
 
     [Serializable]
-    public class CustomCategoriesSerializable : BaseCategoriesSerializable
+    public class CategoriesSerializable : BaseCategoriesSerializable
     {
-        public CustomCategoriesSerializable(IDictionary<string, ICategory> categories) : base(categories) { }
+        public CategoriesSerializable(IDictionary<string, ICategory> categories) : base(categories) { }
 
 
         public new virtual IDictionary<string, ICategory> Categories

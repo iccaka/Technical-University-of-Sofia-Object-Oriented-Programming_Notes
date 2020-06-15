@@ -49,7 +49,7 @@
     <Compile Include="BaseCategoriesSerializable.cs" />
     <Compile Include="BaseCategory.cs" />
     <Compile Include="BaseNote.cs" />
-    <Compile Include="CustomCategoriesSerializable.cs" />
+    <Compile Include="CategoriesSerializable.cs" />
     <Compile Include="CustomCategory.cs" />
     <Compile Include="CategoryNameException.cs" />
     <Compile Include="DecreaseComparer.cs" />

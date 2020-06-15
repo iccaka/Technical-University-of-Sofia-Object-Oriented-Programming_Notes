@@ -108,7 +108,7 @@ namespace Notes
         }
         private void aZToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SortedDictionary<string, ICategory> sortedCategories = new SortedDictionary<string, ICategory>(new IncreaseComparer());
+            IDictionary<string, ICategory> sortedCategories = new SortedDictionary<string, ICategory>(new IncreaseComparer());
 
             foreach(KeyValuePair<string, ICategory> category in this.categories)
             {
@@ -122,7 +122,7 @@ namespace Notes
         }
         private void zAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SortedDictionary<string, ICategory> sortedCategories = new SortedDictionary<string, ICategory>(new DecreaseComparer());
+            IDictionary<string, ICategory> sortedCategories = new SortedDictionary<string, ICategory>(new DecreaseComparer());
 
             foreach (KeyValuePair<string, ICategory> category in this.categories)
             {
@@ -173,7 +173,7 @@ namespace Notes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            BaseCategoriesSerializable categoriesSerializable = new CustomCategoriesSerializable(this.categories);
+            ICategoriesSerializable categoriesSerializable = new CategoriesSerializable(this.categories);
 
             binaryFormatter.Serialize(stream, categoriesSerializable);
 
@@ -198,9 +198,7 @@ namespace Notes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            stream.Position = 0;
-
-            CustomCategoriesSerializable categoriesSerializable = (CustomCategoriesSerializable)binaryFormatter.Deserialize(stream);
+            ICategoriesSerializable categoriesSerializable = (CategoriesSerializable)binaryFormatter.Deserialize(stream);
             this.categories = categoriesSerializable.Categories;
 
             stream.Close();
