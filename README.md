@@ -1,4 +1,4 @@
-# Notes
+# Technical-University-of-Sofia-Object-Oriented-Programming_Notes
 
 *A Windows Forms application created for a university project. It's basically your standard notes app in which the user can save whatever notes he or she wants and categorize them into categories of choice.*
 
